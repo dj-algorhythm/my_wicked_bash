@@ -1,0 +1,45 @@
+{
+	"name": "Bash (Community)",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"mads-hartmann.bash-ide-vscode",
+				"rogalmic.bash-debug"
+			]
+		}
+	},
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [],
+	
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+	
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/conda:1": {},
+		"ghcr.io/devcontainers/features/rust:1": {},
+		"ghcr.io/devcontainers/features/sshd:1": {},
+		"ghcr.io/devcontainers-contrib/features/glances:1": {},
+		"ghcr.io/devcontainers-contrib/features/youtube-dl:1": {},
+		"ghcr.io/devcontainers-contrib/features/yt-dlp:1": {},
+		"ghcr.io/lukewiwa/features/shellcheck:0": {},
+		"ghcr.io/edouard-lopez/devcontainer-features/bats:0": {},
+		"ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
+		"ghcr.io/devcontainers-contrib/features/direnv-asdf:1": {},
+		"ghcr.io/guiyomh/features/vim:0": {}
+	}
+}
