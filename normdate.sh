@@ -30,20 +30,20 @@ if [ $# -ne 3 ] ; then
     exit 1
 fi
 
-if [ $3 -le 99 ] ; then
+if [ "$3" -le 99 ] ; then
     echo "$0: expected 4-digit year value." >&2
     exit 1
 fi
 
 # Is month input format a number?
-if [ -z $(echo $1 | sed 's/[[:digit:]]//g') ]; then
-    monthNumToName $1
+if [ -z "${1//0..9/}" ]; then         # echo "$1" | sed 's/[[:digit:]]//g'
+    monthNumToName "$1"
 else
     # Normalize to first 3 letters, first upper- and then lowercase.
-    month="$(echo $1 | cut -c1 | tr '[:lower:]' '[:upper:]')"
-    month="$month$(echo $1 | cut -c2-3 | tr '[:upper:]' '[:lower:]')"
+    month="$(echo "$1" | cut -c1 | tr '[:lower:]' '[:upper:]')"
+    month="$month$(echo "$1" | cut -c2-3 | tr '[:upper:]' '[:lower:]')"
 fi
 
-echo $month $2 $3
+echo "$month" "$2" "$3"
 
 exit 0
