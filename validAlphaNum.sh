@@ -7,7 +7,8 @@ validAlphaNum()
     # Validate arg: returns 0 if all upper+lower+digits; 1 otherwise
 
     # Remove all unacceptable chars.
-    validchars="$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
+    #validchars="$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
+    validchars="$(echo $1 | sed -e 's/[^-. [:digit:]\(\)]//g')"     # Validate telephone
 
     if [ "$validchars" = "$1" ] ; then
         return 0
