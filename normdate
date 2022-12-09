@@ -36,8 +36,8 @@ if [ "$3" -le 99 ] ; then
 fi
 
 # Is month input format a number?
-if [ -z $( echo $1 | sed 's/[[:digit:]]//g') ] ; then         # echo "$1" | sed 's/[[:digit:]]//g'
-    monthNumToName "$1"
+if [ -z $(echo $1|sed 's/[[:digit:]]//g') ]; then
+    monthNumToName $1
 else
     # Normalize to first 3 letters, first upper- and then lowercase.
     month="$(echo "$1" | cut -c1 | tr '[:lower:]' '[:upper:]')"
